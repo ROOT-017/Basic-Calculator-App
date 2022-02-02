@@ -12,32 +12,66 @@
     .container {
         padding: 70px;
         height: 100vh;
-        background-color: green;
+        background-color: white;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -webkit-box-align: cen;
+        -ms-flex-align: cen;
         align-items: cen;
     }
     
+    .innerContainer {
+        position: relative;
+        width: 30vw;
+        height: 30vw;
+        min-width: 300px;
+        min-height: 300px;
+        margin: 10px auto;
+        border: 2px solid steelblue;
+        background: rgb(235, 239, 245);
+        gap: 2px;
+    }
+    
     #screen {
-        width: (100%)/3.2;
-        height: 50px;
-        background-color: grey;
+        margin: 10px auto;
+        width: 30vw;
+        height: 7vw;
+        background-color: rgba(159, 167, 180, 0.698);
         border: 1px solid black;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .time {
+        display: none;
     }
     
     #function {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
     }
     
     .row {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        gap: 10px;
+        gap: 2px;
     }
     
-    [class^=column] {
-        background-color: aquamarine;
+    [class^=box-] {
+        background-color: greenyellow;
         border: 1px solid black;
-        height: (100vh)/15;
-        width: (100%)/15;
+        height: 8vh;
+        width: 25%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
     }

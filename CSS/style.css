@@ -1,57 +1,93 @@
 * {
-    padding: 0;
-    border: 0;
-    margin: 0;
+  padding: 0;
+  border: 0;
+  margin: 0;
 }
 
 * body {
-    padding: 0;
-    border: 0;
-    margin: 0;
+  padding: 0;
+  border: 0;
+  margin: 0;
 }
 
 .container {
-    padding: 70px;
-    height: 100vh;
-    background-color: blue;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: cen;
-    -ms-flex-align: cen;
-    align-items: center;
+  padding: 70px;
+  height: 100vh;
+  background-color: white;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: cen;
+  -ms-flex-align: cen;
+  align-items: cen;
+}
+
+.innerContainer {
+  position: relative;
+  width: 30vw;
+  height: 30vw;
+  min-width: 300px;
+  min-height: 300px;
+  margin: 10px auto;
+  border: 2px solid steelblue;
+  background: #ebeff5;
+  gap: 2px;
 }
 
 #screen {
-    width: 31.25%;
-    height: 50px;
-    background-color: grey;
-    border: 1px solid black;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+  margin: 10px auto;
+  width: 30vw;
+  height: 7vw;
+  background-color: rgba(159, 167, 180, 0.698);
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.time {
+  display: none;
 }
 
 #function {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2px;
 }
 
 .row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2px;
 }
 
-[class^=column] {
-    background-color: aquamarine;
-    border: 1px solid black;
-    height: 6.66667vh;
-    width: 6.66667%;
+[class^=box-] {
+  background-color: greenyellow;
+  border: 1px solid black;
+  height: 8vh;
+  width: 25%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-
-
 /*# sourceMappingURL=style.css.map */
