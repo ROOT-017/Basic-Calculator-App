@@ -7,7 +7,7 @@ $(function() {
 
         }
     }
-
+    //Fuction to add AM/PM depending on the time of the day
     function AM_PM(daytime) {
 
         if (daytime < 12) {
