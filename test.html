@@ -1,0 +1,33 @@
+<div class=”calculator”>
+    <div class=”calculator__display”>0</div>
+    <div class=”calculator__keys”> … </div>
+</div>
+We can use CSS Grid to make the keys, since they’re arranged in a grid-like format. This has already been done for you in the starter file. You can find the starter file at this pen. .calculator__keys { display: grid; /* other necessary CSS */ } To help
+us identify operator, decimal, clear, and equal keys, we’re going to supply a data-action attribute that describes what they do.
+
+<div class="calculator__keys">
+    <button class="key--operator" data-action="add">+</button>
+    <button class="key--operator" data-action="subtract">-</button
+    <button class="key--operator" data-action="multiply">&times;</button>
+    <button class="key--operator" data-action="divide">÷</button
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>0</button>
+    <button data-action="decimal">.</button>
+    <button data-action="clear">AC</button>
+    <button class="key--equal" data-action="calculate">=</button>
+</div>
+Listening to key-presses Five things can happen when a person gets hold of a calculator. They can hit: a number key (0–9) an operator key (+, -, ×, ÷) the decimal key the equals key the clear key The first steps to building this calculator are to be able
+to (1) listen for all keypresses and (2) determine the type of key that is pressed. In this case, we can use an event delegation pattern to listen, since keys are all children of .calculator__keys. const calculator = document.querySelector(‘.calculator’)
+const keys = calculator.querySelector(‘.calculator__keys’) keys.addEventListener(‘click’, e => { if (e.target.matches(‘button’)) { // Do something } }) Next, we can use the data-action attribute to determine the type of key that is clicked. const key
+= e.target const action = key.dataset.action If the key does not have a data-action attribute, it must be a number key. if (!action) { console.log('number key!') } If the key has a data-action that is either add, subtract, multiply or divide, we know
+the key is an operator. if ( action === 'add' || action === 'subtract' || action === 'multiply' || action === 'divide' ) { console.log('operator key!') } If the key’s data-action is decimal, we know the user clicked on the decimal key. Following the same
+thought process, if the key’s data-action is clear, we know the user clicked on the clear (the one that says AC) key. If the key’s data-action is calculate, we know the user clicked on the equals key. if (action === 'decimal') { console.log('decimal key!')
+} if (action === 'clear') { console.log('clear key!') } if (action === 'calculate') { console.log('equal key!') } At this point, you should get a console.log response from every calculator key.

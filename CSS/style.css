@@ -20,6 +20,21 @@
   -webkit-box-align: cen;
   -ms-flex-align: cen;
   align-items: cen;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#on_off,
+#text {
+  font-size: 15px;
+}
+
+#on_off {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.time {
+  font-size: 40px;
 }
 
 .innerContainer {
@@ -36,7 +51,7 @@
 
 #screen {
   margin: 10px auto;
-  width: 30vw;
+  width: 35vw;
   height: 7vw;
   background-color: rgba(159, 167, 180, 0.698);
   border: 1px solid black;
@@ -89,5 +104,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+#equal {
+  background-color: grey;
+  font-size: 40px;
 }
 /*# sourceMappingURL=style.css.map */

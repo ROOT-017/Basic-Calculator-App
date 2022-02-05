@@ -21,10 +21,10 @@ $(function() {
     var c = false
         //Button T
 
-    $("#time").click(function() {
+    $("#timeButton").click(function() {
         $("#text").css("display", "none")
         $(".time").css("display", "inline")
-        window.setInterval(function() {
+        globalThis = window.setInterval(function() {
             var currentTime = new Date()
             var hours = currentTime.getHours();
             var minutes = currentTime.getMinutes();
@@ -43,14 +43,21 @@ $(function() {
     })
 
     //Getting the value of the click button
-    var buttons = document.getElementsByClassName("box-")
+
+    var buttons = $(".box-")
 
     for (var i = 0; i < buttons.length; i++) {
         {
-            console.log(buttons[i].onclick)
+            if (buttons[i].innerHTML == "5") {
+                console.log(buttons[i].innerHTML)
+            }
+            //console.log(buttons[i].innerHTML)
+
         }
+
     }
     $("#on_off").click(function() {
         $("#screen").text("Hello")
     })
+
 })
