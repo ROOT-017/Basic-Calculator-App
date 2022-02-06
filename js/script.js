@@ -1,4 +1,6 @@
 $(function() {
+    //Fuction to add leadingzero if value of the time is less than 10
+
     function add_leading_zero(number) {
         if (number < 10) {
             return "0" + number.toString();
