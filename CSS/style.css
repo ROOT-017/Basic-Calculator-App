@@ -35,9 +35,6 @@
           align-items: center;
   background-color: aquamarine;
   margin: 0vw 25vw;
-  -webkit-box-align: colum;
-      -ms-flex-align: colum;
-          align-items: colum;
 }
 
 #on_off,
@@ -56,7 +53,6 @@
 .innerContainer {
   position: relative;
   width: 30vw;
-  height: 30vw;
   min-width: 300px;
   min-height: 300px;
   margin: 10px auto;
