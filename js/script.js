@@ -26,7 +26,7 @@ $(function() {
     $("#timeButton").click(function() {
         $("#text").css("display", "none")
         $(".time").css("display", "inline")
-        globalThis = window.setInterval(function() {
+        var globalThis = window.setInterval(function() {
             var currentTime = new Date()
             var hours = currentTime.getHours();
             var minutes = currentTime.getMinutes();
@@ -35,6 +35,8 @@ $(function() {
             document.getElementById("minutes").innerHTML = add_leading_zero(minutes) + " :";
             document.getElementById("seconds").innerHTML = add_leading_zero(seconds);
             document.getElementById("AM-PM").innerHTML = AM_PM(hours);
+
+            return globalThis
         }, 1000);
     })
 
@@ -42,6 +44,7 @@ $(function() {
 
     $("#clear").click(function() {
         $("#screen").text("0")
+        windows.clearInterval(globalThis)
     })
 
     //Getting the value of the click button
