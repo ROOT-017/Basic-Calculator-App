@@ -10,7 +10,7 @@
 }
 
 .container {
-  padding: 70px;
+  padding: 80px;
   height: 80vh;
   background-color: white;
   -webkit-box-pack: center;
@@ -32,7 +32,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: aquamarine;
+  background-color: whitesmoke;
   margin: 0vw 25vw;
 }
 
@@ -55,7 +55,11 @@
   margin: 10px auto;
   border: 2px solid steelblue;
   background: #ebeff5;
-  gap: 2px;
+  gap: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #screen {
@@ -100,7 +104,7 @@
 }
 
 [class^=box-] {
-  background-color: greenyellow;
+  background-color: gray;
   border: 1px solid black;
   height: 8vh;
   width: 25%;
@@ -116,7 +120,7 @@
 }
 
 #equal {
-  background-color: grey;
+  background-color: green;
   font-size: 40px;
 }
 
@@ -132,6 +136,7 @@
             align-items: center;
     background-color: aquamarine;
     margin: 0vw 25vw;
+    gap: 2px;
   }
   #on_off,
   #text {
@@ -167,7 +172,6 @@
             align-items: center;
   }
   .row {
-    gap: 1px;
     width: 30vw;
   }
   [class^=box-] {
