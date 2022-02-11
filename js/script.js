@@ -20,31 +20,47 @@ $(function() {
             return time.toString();
         }
     }
-    var c = false
-        //Button T
 
+    //Global Variables
+    var timeState = false
+    var on_off = false
+    var on_offState = 0
+    var onBackgroundColor = "#00ff00"
+    var offBackgroundColor = "#ff0000"
+    var cssBackgroundColorProperty = "background-color"
+
+    //Calcutaed value is always none initialy
+    $(".calculatedValue").css("display", "none")
+    $(".box-on").css("display", "none")
+        //TimeButton
     $("#timeButton").click(function time() {
-        $("#text").css("display", "none")
-        $(".time").css("display", "inline")
-        var globalThis = window.setInterval(function() {
-            var currentTime = new Date()
-            var hours = currentTime.getHours();
-            var minutes = currentTime.getMinutes();
-            var seconds = currentTime.getSeconds();
-            document.getElementById("hours").innerHTML = add_leading_zero(hours) + ":";
-            document.getElementById("minutes").innerHTML = add_leading_zero(minutes) + " :";
-            document.getElementById("seconds").innerHTML = add_leading_zero(seconds);
-            document.getElementById("AM-PM").innerHTML = AM_PM(hours);
-
-            return globalThis
-        }, 1000);
+        if (on_off == true) {
+            //Display time
+            $(".calculatedValue").css("display", "none")
+            $("#text").css("display", "none")
+            $(".time").css("display", "inline")
+            globalThis.clear = window.setInterval(function() {
+                var currentTime = new Date()
+                var hours = currentTime.getHours();
+                var minutes = currentTime.getMinutes();
+                var seconds = currentTime.getSeconds();
+                document.getElementById("hours").innerHTML = add_leading_zero(hours) + ":";
+                document.getElementById("minutes").innerHTML = add_leading_zero(minutes) + " :";
+                document.getElementById("seconds").innerHTML = add_leading_zero(seconds);
+                document.getElementById("AM-PM").innerHTML = AM_PM(hours);
+            }, 1000);
+        }
     })
 
-    //Button C
-
+    //Button Clear
     $("#clear").click(function() {
-        $("#screen").text("0")
-        windows.clearInterval(globalThis)
+        if (on_offState == true) {
+
+            window.clearInterval(clear)
+            $(".time").css("display", "none")
+            $("#text").css("display", "none")
+            $(".calculatedValue").css("display", "inline")
+        }
     })
 
     //Getting the value of the click button
@@ -61,8 +77,120 @@ $(function() {
         }
 
     }
+
+    //on_off button
     $("#on_off").click(function() {
-        $("#screen").text("Hello")
+        if (on_offState == 1) {
+            on_off = false
+            on_offState -= 1
+            console.log(on_offState, on_off)
+            $("#on_off").css(cssBackgroundColorProperty, offBackgroundColor)
+            $("#text").css("display", "inline")
+            window.clearInterval(clear)
+            $(".time").css("display", "none")
+            $(".calculatedValue").css("display", "none")
+            $("#on_off").text("OFF")
+
+        } else {
+            on_off = true
+            on_offState = +1
+            console.log(on_offState, on_off)
+            $("#on_off").css(cssBackgroundColorProperty, onBackgroundColor)
+            $("#text").css("display", "none")
+            $(".calculatedValue").css("display", "inline")
+            $(".time").css("display", "none")
+            $("#on_off").text("ON")
+            window.clearInterval(clear)
+                //$("#time").css("display", "none")
+        }
+        /*   $("#on_off").css(cssBackgroundColorProperty, on_offBackgroundColor)
+             
+          $("#text").css("display", "inline")
+          $(".calculatedValue").css("display", "none")
+          $(".time").css("display", "none")
+          window.clearInterval(clear)
+              //$("#time").css("display", "none")
+             */
+
+        //}
+
+
     })
 
+})
+const calculator = document.querySelector(".box")
+const keys = calculator.querySelector(".innerContainer")
+keys.addEventListener("click", e => {
+    if (e.target.matches("div")) {
+        // Do something 
+        const key = e.target
+        const action = key.dataset.action
+
+        if (!action) {
+            console.log("number key!")
+        }
+        if (
+            action == 'add' || action == 'subtract' || action == 'multiply' || action == 'divide' || action == "modulus"
+        ) {
+            console.log('operator key!')
+        }
+        if (action === 'decimal') {
+            console.log('decimal key!')
+        }
+
+        if (action === 'clear') {
+            console.log('clear key!')
+        }
+
+        if (action === 'equal') {
+            console.log('equal key!')
+        }
+        if (action === 'time') {
+            console.log('time key!')
+        }
+        if (action === 'on_off') {
+            console.log('On_OFF key!')
+        }
+    }
+    const display = document.querySelector('.calculator__display')
+
+    keys.addEventListener('click', e => {
+        if (e.target.matches('div')) {
+            const key = e.target
+            const action = key.dataset.action
+            const keyContent = key.textContent
+            const displayedNum = display.textContent
+            if (!action) {
+                if (displayedNum === '0') {
+                    display.textContent = keyContent
+                }
+            }
+            if (!action) {
+                if (displayedNum === '0') {
+                    display.textContent = keyContent
+                } else {
+                    display.textContent = displayedNum + keyContent
+                }
+            }
+            if (action === 'decimal') {
+                display.textContent = displayedNum + '.'
+            }
+            if (
+                action === 'add' || action === 'subtract' || action === 'multiply' || action === 'divide' || action == "modulus"
+            ) {
+                key.classList.add('is-depressed')
+            }
+            keys.addEventListener('click', e => {
+                if (e.target.matches('button')) {
+                    const key = e.target
+                        // ...
+
+                    // Remove .is-depressed class from all keys
+                    Array.from(key.parentNode.children)
+                        .forEach(k => k.classList.remove('is-depressed'))
+                }
+            })
+        }
+
+    })
 })
