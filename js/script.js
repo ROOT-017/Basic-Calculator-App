@@ -23,7 +23,7 @@ $(function() {
     var c = false
         //Button T
 
-    $("#timeButton").click(function() {
+    $("#timeButton").click(function time() {
         $("#text").css("display", "none")
         $(".time").css("display", "inline")
         var globalThis = window.setInterval(function() {
